@@ -18,4 +18,19 @@ public class CarServiceTest {
         //then
         Assertions.assertThrows(IllegalArgumentException.class,() -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
     }
+
+    @Test
+    public void analyzeCarByParams_allValuesOk_resultTrue(){
+        //given
+        Integer treadThickness = 3;
+        Integer fuelUsage = 5;
+        Integer carMillage = 15000;
+        CarService service = new CarService();
+
+        //when
+        boolean result = service.analyzeCarByParams(treadThickness, fuelUsage, carMillage);
+
+        //then
+        Assertions.assertEquals(result, true);
+    }
 }
