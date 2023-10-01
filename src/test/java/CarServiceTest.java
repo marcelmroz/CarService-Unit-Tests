@@ -33,4 +33,19 @@ public class CarServiceTest {
         //then
         Assertions.assertTrue(result);
     }
+
+    @Test
+    public void analyzeCarByParams_carMillageNotOk_resultFalse(){
+        //given
+        Integer treadThickness = 3;
+        Integer fuelUsage = 5;
+        Integer carMillage = 21000;
+        CarService service = new CarService();
+
+        //when
+        boolean result = service.analyzeCarByParams(treadThickness, fuelUsage, carMillage);
+
+        //then
+        Assertions.assertFalse(result);
+    }
 }
