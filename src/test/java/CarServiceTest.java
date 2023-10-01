@@ -31,6 +31,6 @@ public class CarServiceTest {
         boolean result = service.analyzeCarByParams(treadThickness, fuelUsage, carMillage);
 
         //then
-        Assertions.assertEquals(result, true);
+        Assertions.assertTrue(result);
     }
 }
