@@ -13,7 +13,6 @@ public class CarServiceTest {
         CarService service = new CarService();
 
         //when
-        //boolean result = service.analyzeCarByParams(treadThickness, fuelUsage, carMillage);
 
         //then
         Assertions.assertThrows(IllegalArgumentException.class,() -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
@@ -40,6 +39,36 @@ public class CarServiceTest {
         Integer treadThickness = 3;
         Integer fuelUsage = 5;
         Integer carMillage = 21000;
+        CarService service = new CarService();
+
+        //when
+        boolean result = service.analyzeCarByParams(treadThickness, fuelUsage, carMillage);
+
+        //then
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    public void analyzeCarByParams_millageLessThanZero_throwIllegalArgumentException(){
+
+        //given
+        Integer treadThickness = 3;
+        Integer fuelUsage = 5;
+        Integer carMillage = -1;
+        CarService service = new CarService();
+
+        //when
+
+        //then
+        Assertions.assertThrows(IllegalArgumentException.class,() -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
+    }
+
+    @Test
+    public void analyzeCarByParams_valuesEqualMinOrMax_resultFalse(){
+        //given
+        Integer treadThickness = 2;
+        Integer fuelUsage = 14;
+        Integer carMillage = 0;
         CarService service = new CarService();
 
         //when
