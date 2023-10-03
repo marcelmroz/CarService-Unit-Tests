@@ -132,4 +132,32 @@ public class CarServiceTest {
         //then
         Assertions.assertFalse(result);
     }
+
+    @Test
+    public void analyzeCarByParams_treadThicknessGreaterThanMax_resultFalse(){
+        //given
+        Integer treadThickness = 1000001;
+        Integer fuelUsage = 5;
+        Integer carMillage = 15000;
+        CarService service = new CarService();
+
+        //when
+        boolean result = service.analyzeCarByParams(treadThickness, fuelUsage, carMillage);
+
+        //then
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    public void analyzeCarByParams_treadThicknessNull_throwIllegalArgumentException(){
+        //given
+        Integer treadThickness = null;
+        Integer fuelUsage = 5;
+        Integer carMillage = 15000;
+        CarService service = new CarService();
+
+        //then
+        Assertions.assertThrows(IllegalArgumentException.class,() -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
+    }
+
 }
