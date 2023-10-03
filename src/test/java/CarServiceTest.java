@@ -160,4 +160,19 @@ public class CarServiceTest {
         Assertions.assertThrows(IllegalArgumentException.class,() -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
     }
 
+    @Test
+    public void analyzeCarByParams_minimumValidValues_resultTrue(){
+        //given
+        Integer treadThickness = ParamValues.TREAD_THICKNESS.getMinValue();
+        Integer fuelUsage = ParamValues.FUEL_USAGE.getMinValue();
+        Integer carMillage = ParamValues.CAR_MILLAGE.getMinValue() + 1; // +1 because the minimum itself is not inclusive
+        CarService service = new CarService();
+
+        //when
+        boolean result = service.analyzeCarByParams(treadThickness, fuelUsage, carMillage);
+
+        //then
+        Assertions.assertTrue(result);
+    }
+
 }

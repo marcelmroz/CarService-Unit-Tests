@@ -27,8 +27,7 @@ public class CarService {
         }
         Integer maxValue = validValues.getMaxValue();
         Integer minValue = validValues.getMinValue();
-        if (value > minValue && value < maxValue) {
-
+        if (value >= minValue && value < maxValue) {
             return true;
         }
         return false;
