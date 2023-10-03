@@ -12,11 +12,7 @@ public class CarService {
         boolean isMillageCorrect = isCorrect(carMillage, ParamValues.CAR_MILLAGE);
         boolean isFuelUsageCorrect = isCorrect(fuelUsage, ParamValues.FUEL_USAGE);
         boolean isTreadThicknessCorrect = isCorrect(treadThickness, ParamValues.TREAD_THICKNESS);
-        if (isMillageCorrect && isFuelUsageCorrect && isTreadThicknessCorrect) {
-
-            return true;
-        }
-        return false;
+        return isMillageCorrect && isFuelUsageCorrect && isTreadThicknessCorrect;
     }
 
     private boolean isCorrect(Integer value, ParamValues validValues) {
@@ -27,9 +23,6 @@ public class CarService {
         }
         Integer maxValue = validValues.getMaxValue();
         Integer minValue = validValues.getMinValue();
-        if (value >= minValue && value < maxValue) {
-            return true;
-        }
-        return false;
+        return value >= minValue && value < maxValue;
     }
 }
