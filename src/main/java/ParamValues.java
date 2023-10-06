@@ -6,8 +6,8 @@ public enum ParamValues {
 
     TREAD_THICKNESS(2, 1000000);
 
-    private Integer minValue;
-    private Integer maxValue;
+    private final Integer minValue;
+    private final Integer maxValue;
 
     ParamValues(Integer minValue, Integer maxValue) {
         this.minValue = minValue;
