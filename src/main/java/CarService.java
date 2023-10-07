@@ -18,7 +18,6 @@ public class CarService {
     private boolean isCorrect(Integer value, ParamValues validValues) {
 
         if (value < 0) {
-
             throw new IllegalArgumentException("Incorrect value");
         }
         Integer maxValue = validValues.getMaxValue();

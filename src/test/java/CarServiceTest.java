@@ -5,14 +5,11 @@ public class CarServiceTest {
 
     @Test
     public void analyzeCarByParams_millageNull_throwIllegalArgumentException(){
-
         //given
         Integer treadThickness = 3;
         Integer fuelUsage = 5;
         Integer carMillage = null;
         CarService service = new CarService();
-
-        //when
 
         //then
         Assertions.assertThrows(IllegalArgumentException.class,() -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
@@ -50,14 +47,11 @@ public class CarServiceTest {
 
     @Test
     public void analyzeCarByParams_millageLessThanZero_throwIllegalArgumentException(){
-
         //given
         Integer treadThickness = 3;
         Integer fuelUsage = 5;
         Integer carMillage = -1;
         CarService service = new CarService();
-
-        //when
 
         //then
         Assertions.assertThrows(IllegalArgumentException.class,() -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
